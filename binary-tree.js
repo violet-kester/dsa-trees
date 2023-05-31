@@ -16,10 +16,10 @@ class BinaryTreeNode {
     let stack = [this];
     let minDepth = 1;
 
-    while(stack.length) {
+    while (stack.length) {
       let current = stack.pop();
 
-      if(!current.left || !current.right) {
+      if (!current.left || !current.right) {
         return minDepth;
       }
 
@@ -37,28 +37,39 @@ class BinaryTreeNode {
   maxDepth() {
     let stack = [this];
     let maxDepth = 1;
+    console.log("maxDepth=", maxDepth);
     let currDepth = 1;
+    console.log("currDepth=", currDepth);
 
-    while(stack.length) {
+    while (stack.length) {
       let current = stack.pop();
+      console.log("current=", current.val);
 
-      if(!current.left && !current.right) {
-        if(currDepth > maxDepth) {
+      // leaf hit
+      if (!current.left && !current.right) {
+        if (currDepth > maxDepth) {
           maxDepth = currDepth;
+          console.log("LEAF HIT maxDepth=", maxDepth);
         }
         currDepth = currDepth - 1;
+        console.log("LEAF HIT currDepth=", currDepth);
+      }
+
+      // no leaf - continue
+      console.log("NO LEAF HIT - CONTINUE")
+
+      if (current.right) {
+        stack.push(current.right);
+        console.log("RIGHT CHILD HIT new stack=", stack);
+
+        if (current.left) {
+          stack.push(current.left);
+          console.log("LEFT CHILD HIT new stack=", stack);
+        }
       }
 
       currDepth++;
-
-      if(current.right) {
-        stack.push(current.right);
-        
-      }
-
-      if(current.left){
-        stack.push(current.left);
-      }
+      console.log("CONTINUE currDepth=", currDepth);
     }
 
     return maxDepth;
@@ -66,7 +77,7 @@ class BinaryTreeNode {
 
   /** minDepth(): return the minimum depth from the invoking node -- that is,
    * the length of the shortest path from the invoking node to a leaf. */
-   minDepth() {
+  minDepth() {
 
   }
 
@@ -90,7 +101,7 @@ class BinaryTree {
   // this is a stack or recursion problem; we'll use recursion
 
   minDepthToIncompleteNode() {
-    if(!this.root) return 0;
+    if (!this.root) return 0;
 
     return this.root.minDepthToIncompleteNode();
 
@@ -102,7 +113,7 @@ class BinaryTree {
   // this is a stack or recursion problem; we'll use recursion
 
   maxDepth() {
-    if(!this.root) return 0;
+    if (!this.root) return 0;
 
     return this.root.maxDepth();
 
