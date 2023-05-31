@@ -388,22 +388,22 @@ describe("dfsInOrderWithHelper", function () {
   });
 });
 
-describe("dfsInOrderIterative", function () {
-  it("returns an array of values found with DFS In Order(small)", function () {
-    expect(smallBST.dfsInOrderWithHelper()).toEqual([10, 20]);
-  });
+// describe("dfsInOrderIterative", function () {
+//   it("returns an array of values found with DFS In Order(small)", function () {
+//     expect(smallBST.dfsInOrderWithHelper()).toEqual([10, 20]);
+//   });
 
-  it("returns an array of values found with DFS In Order(large)", function () {
-    expect(largeBST.dfsInOrderWithHelper()).toEqual([
-      10, 15, 25, 40, 50, 75, 100,
-    ]);
-  });
+//   it("returns an array of values found with DFS In Order(large)", function () {
+//     expect(largeBST.dfsInOrderWithHelper()).toEqual([
+//       10, 15, 25, 40, 50, 75, 100,
+//     ]);
+//   });
 
-  it("returns an array of values found with DFS In Order(empty)", function () {
-    console.log("About to run dfs in order on empty table");
-    expect(emptyBST.dfsInOrderWithHelper()).toEqual([]);
-  });
-});
+//   it("returns an array of values found with DFS In Order(empty)", function () {
+//     console.log("About to run dfs in order on empty table");
+//     expect(emptyBST.dfsInOrderWithHelper()).toEqual([]);
+//   });
+// });
 
 describe("dfsPostOrder", function () {
   it("returns an array of values found with DFS Post Order(small)", function () {
