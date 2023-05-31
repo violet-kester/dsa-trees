@@ -49,8 +49,23 @@ class TreeNode {
   // /** numGreater(lowerBound): starting from the invoking node and moving through
   //  * its children, return a count of the number of nodes whose value is greater
   //  * than lowerBound. */
-  numGreater(lowerBound){
+  numGreater(lowerBound) {
+    let stack = [this];
+    let count = 0;
 
+    while (stack.length) {
+      let current = stack.pop();
+
+      if (current.val > lowerBound) {
+        count++;
+      }
+
+      for(let child of current.children) {
+        stack.push(child);
+      }
+    }
+
+    return count;
   }
 }
 
@@ -73,9 +88,10 @@ class Tree {
 
   // /** numGreater(lowerBound): return a count of the number of nodes
   //  * whose value is greater than lowerBound. */
-  // numGreater(lowerBound) {
-
-  // }
+  numGreater(lowerBound) {
+    if (!this.root) return 0;
+    return this.root.numGreater(lowerBound);
+  }
 }
 
 module.exports = { Tree, TreeNode };
