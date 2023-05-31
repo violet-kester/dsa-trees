@@ -57,9 +57,7 @@ class Node {
     let current = this;
     if (current.left === null && current.right === null) return;
 
-    current.left.dfsInOrder(current.left)
-    arr.push(current);
-    current.right.dfsInOrder(current.right)
+   
 
     print("Array!", arr);
   }
