@@ -13,23 +13,24 @@ class BinaryTreeNode {
    * incomplete node-- that is, the length of the shortest path from the root to
    * a node with less than two children. */
   minDepthToIncompleteNode() {
-    let stack = [this];
-    let minDepth = 1;
+    // TODO: implement recursion on these
+    // let stack = [this];
+    // let minDepth = 1;
 
-    while (stack.length) {
-      let current = stack.pop();
+    // while (stack.length) {
+    //   let current = stack.pop();
 
-      if (!current.left || !current.right) {
-        return minDepth;
-      }
+    //   if (!current.left || !current.right) {
+    //     return minDepth;
+    //   }
 
-      minDepth++;
+    //   minDepth++;
 
-      stack.push(current.right);
-      stack.push(current.left);
-    }
+    //   stack.push(current.right);
+    //   stack.push(current.left);
+    // }
 
-    return minDepth;
+    // return minDepth;
   }
 
   /** maxDepth(): return the maximum depth from the invoking node -- that is,
